@@ -33,6 +33,7 @@ export default async function Page({ params }) {
   if (Number.isNaN(id)) notFound();
 
   const cabin = await getCabin(id);
+
   if (!cabin) notFound();
 
   return (
@@ -48,7 +49,7 @@ export default async function Page({ params }) {
         </div>
         <Cabin cabin={cabin} />
       </div>
-
+      {}
       <div>
         <h2 className="text-5xl text-accent-400 font-semibold text-center">
           Reserve {cabin.name} today. Pay on arrival.

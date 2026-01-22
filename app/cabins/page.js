@@ -16,7 +16,6 @@ export default async function Page({ searchParams }) {
   const sparems = await searchParams;
   const filter = sparems?.capacity ?? "all";
 
-  console.log(sparems);
   return (
     <div className="min-h-screen max-w-full px-4">
       <h1 className="text-4xl text-accent-400 font-medium">

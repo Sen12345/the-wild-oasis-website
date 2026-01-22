@@ -1,15 +1,25 @@
 "use client";
 
-function UpdateProfileForm({ children }) {
-  const countryFlag = "pt.jpg";
+import Image from "next/image";
+import { updateGuest } from "../_lib/actions";
+import SubmitButton from "./SubmitButton";
+
+function UpdateProfileForm({ children, guest }) {
+  const { fullName, email, nationality, nationalID, countryFlag } = guest;
 
   return (
     <div>
-      <form className="bg-primary-900 py-8 px-12 text-lg flex gap-6 flex-col">
+      <form
+        action={updateGuest}
+        className="bg-primary-900 py-8 px-12 text-lg flex gap-6 flex-col"
+      >
         <div className="space-y-2">
           <label>Full name</label>
           <input
             disabled
+            name="fullName"
+            defaultValue={fullName}
+            // placeholder="Senator Cox"
             className="px-5 py-3 bg-primary-200 text-primary-800 w-full shadow-sm rounded-sm disabled:cursor-not-allowed disabled:bg-gray-600 disabled:text-gray-400"
           />
         </div>
@@ -18,6 +28,9 @@ function UpdateProfileForm({ children }) {
           <label>Email address</label>
           <input
             disabled
+            defaultValue={email}
+            name="email"
+            // placeholder="senatorcox90@gmail.com"
             className="px-5 py-3 bg-primary-200 text-primary-800 w-full shadow-sm rounded-sm disabled:cursor-not-allowed disabled:bg-gray-600 disabled:text-gray-400"
           />
         </div>
@@ -25,10 +38,12 @@ function UpdateProfileForm({ children }) {
         <div className="space-y-2">
           <div className="flex items-center justify-between">
             <label htmlFor="nationality">Where are you from?</label>
-            <img
+            <Image
               src={countryFlag}
               alt="Country flag"
-              className="h-5 rounded-sm"
+              width={100}
+              height={100}
+              className="h-5 w-5 rounded-sm object-cover"
             />
           </div>
 
@@ -39,17 +54,19 @@ function UpdateProfileForm({ children }) {
           <label htmlFor="nationalID">National ID number</label>
           <input
             name="nationalID"
+            defaultValue={nationalID}
             className="px-5 py-3 bg-primary-200 text-primary-800 w-full shadow-sm rounded-sm"
           />
         </div>
 
         <div className="flex justify-end items-center gap-6">
-          <button className="bg-accent-500 px-8 py-4 text-primary-800 font-semibold hover:bg-accent-600 transition-all disabled:cursor-not-allowed disabled:bg-gray-500 disabled:text-gray-300">
-            Update profile
-          </button>
+          <SubmitButton label="Update Profile" />
         </div>
       </form>
     </div>
   );
 }
+
+<SubmitButton label="Update Profile" />;
+
 export default UpdateProfileForm;
