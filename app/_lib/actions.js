@@ -59,6 +59,7 @@ export async function createBookingAction(bookingData, formData) {
     console.error("SUPABASE ERROR:", error);
     throw new Error(error.message);
   }
+  revalidatePath(`/cabins/${bookingData.cabinId}`);
 }
 
 export async function deleteBookingAction(bookingId) {
