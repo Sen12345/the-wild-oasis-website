@@ -42,6 +42,7 @@ export async function createBookingAction(bookingData, formData) {
   if (!session) throw new Error("Your must be logged in");
   //Alternative Object.entries(formdate.entries());
   const newBooking = {
+    ...bookingData,
     guestId: session?.user?.guestId,
     numGuests: Number(formData.get("numGuests")),
     observations: formData.get("observations").slice(0, 500),
@@ -53,6 +54,8 @@ export async function createBookingAction(bookingData, formData) {
   };
   const { error } = await supabase.from("bookings").insert([newBooking]);
 
+  // console.log(newBooking);
+
   // if (error) console.error(error);
   // throw new Error("Booking could not be created");
   if (error) {
@@ -60,6 +63,8 @@ export async function createBookingAction(bookingData, formData) {
     throw new Error(error.message);
   }
   revalidatePath(`/cabins/${bookingData.cabinId}`);
+
+  redirect("/cabins/thankyou");
 }
 
 export async function deleteBookingAction(bookingId) {

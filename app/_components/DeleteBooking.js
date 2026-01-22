@@ -29,4 +29,4 @@ function DeleteBooking({ bookingId, onDelete }) {
   );
 }
 
-export default DeleteReservation;
+export default DeleteBooking;

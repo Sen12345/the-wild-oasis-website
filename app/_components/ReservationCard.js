@@ -1,8 +1,8 @@
+import Link from "next/link";
+import Image from "next/image";
 import { PencilSquareIcon } from "@heroicons/react/24/solid";
 import { format, formatDistance, isPast, isToday, parseISO } from "date-fns";
-import DeleteBooking from "@/app/_components/DeleteBooking";
-import Image from "next/image";
-import Link from "next/link";
+import DeleteBooking from "./DeleteBooking";
 
 export const formatDistanceFromNow = (dateStr) =>
   formatDistance(parseISO(dateStr), new Date(), {
@@ -20,16 +20,19 @@ function ReservationCard({ booking, onDelete }) {
     numGuests,
     status,
     created_at,
-    cabins: { name, images },
+    cabins,
   } = booking;
+
+  const { name, images } = cabins;
+  const image = images;
 
   return (
     <div className="flex border border-primary-800">
       <div className="relative h-32 aspect-square">
         <Image
-          src={images}
-          fill
+          src={image}
           alt={`Cabin ${name}`}
+          fill
           className="object-cover border-r border-primary-800"
         />
       </div>
@@ -72,15 +75,17 @@ function ReservationCard({ booking, onDelete }) {
 
       <div className="flex flex-col border-l border-primary-800 w-[100px]">
         {!isPast(startDate) ? (
-          <Link
-            href={`/account/reservation/edit/${id}`}
-            className="group flex items-center gap-2 uppercase text-xs font-bold text-primary-300 border-b border-primary-800 flex-grow px-3 hover:bg-accent-600 transition-colors hover:text-primary-900"
-          >
-            <PencilSquareIcon className="h-5 w-5 text-primary-600 group-hover:text-primary-800 transition-colors" />
-            <span className="mt-1">Edit</span>
-          </Link>
+          <>
+            <Link
+              href={`/account/reservations/edit/${id}`}
+              className="group flex items-center gap-2 uppercase text-xs font-bold text-primary-300 border-b border-primary-800 flex-grow px-3 hover:bg-accent-600 transition-colors hover:text-primary-900"
+            >
+              <PencilSquareIcon className="h-5 w-5 text-primary-600 group-hover:text-primary-800 transition-colors" />
+              <span className="mt-1">Edit</span>
+            </Link>
+            <DeleteBooking bookingId={id} onDelete={onDelete} />
+          </>
         ) : null}
-        <DeleteBooking bookingId={id} onDelete={onDelete} />
       </div>
     </div>
   );
