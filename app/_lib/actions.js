@@ -25,7 +25,7 @@ export async function updateGuest(formData) {
       .eq("id", session.user.guestId);
     revalidatePath("/account/profile");
   } catch (e) {
-    throw { message: e.message };
+    throw { message: e.message + "WWWWWWWWWWWWW" };
   }
 }
 
