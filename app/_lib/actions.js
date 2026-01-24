@@ -5,7 +5,6 @@ import { auth, signIn, signOut } from "./auth";
 import { supabase } from "./supabase";
 import { getBookings } from "./data-service";
 import { redirect } from "next/navigation";
-import Error from "../account/profile/error";
 
 export async function updateGuest(formData) {
   const session = await auth();
@@ -18,20 +17,15 @@ export async function updateGuest(formData) {
     throw new Error("Please provide a valid NationalID");
 
   const updateData = { nationality, countryFlag, nationalID };
-  try {
-    const { data, error } = await supabase
-      .from("guests")
-      .update(updateData)
-      .eq("id", session.user.guestId);
 
-    console.log(data);
+  const { data, error } = await supabase
+    .from("guests")
+    .update(updateData)
+    .eq("id", session.user.guestId);
 
-    if (!data.ok) throw new Error("Failed");
-  } catch (e) {
-    //  throw e; // OR handle fallback UI yourself
-    return <Error />;
+  if (error) {
+    throw new Error(error.message);
   }
-
   revalidatePath("/account/profile");
 }
 
