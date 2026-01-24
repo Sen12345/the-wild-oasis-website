@@ -24,7 +24,7 @@ export async function updateGuest(formData) {
     .eq("id", session.user.guestId);
 
   if (error) {
-    throw new Error(error.message);
+    throw new Error(error.message + "FFFFFFFFFFFFFFFFFF");
   }
   revalidatePath("/account/profile");
 }
