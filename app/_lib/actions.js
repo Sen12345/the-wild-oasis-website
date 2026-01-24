@@ -12,19 +12,18 @@ export async function updateGuest(formData) {
 
   const nationalID = formData.get("nationalID");
   const [nationality, countryFlag] = formData.get("nationality").split("%");
+  try {
+    if (!/^[A-Za-z0-9]{6,12}$/.test(nationalID)) {
+      throw new Error("Please provide a valid NationalID");
+    }
 
-  if (!/^[A-Za-z0-9]{6,12}$/.test(nationalID)) {
-    throw new Error("Please provide a valid NationalID");
-  }
+    const updateData = { nationality, countryFlag, nationalID };
 
-  const updateData = { nationality, countryFlag, nationalID };
-
-  const { data, error } = await supabase
-    .from("guests")
-    .update(updateData)
-    .eq("id", session.user.guestId);
-
-  if (error) {
+    const { data, error } = await supabase
+      .from("guests")
+      .update(updateData)
+      .eq("id", session.user.guestId);
+  } catch (error) {
     throw new Error(error.message);
   }
   revalidatePath("/account/profile");
