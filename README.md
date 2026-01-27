@@ -35,13 +35,15 @@ Supabase is used as the backend platform, providing:
 * Supabase stores application data and supports backend operations
 * Server Components & Route Handlers are used where appropriate for data fetching and mutations
 * Client Components handle interactive UI elements such as date selection and form input
+
 ## Getting Started
 ### Prerequisites
 * Node.js (v18 or later recommended)
 * npm, yarn, or pnpm
 * A Supabase project
+
 ## Installation
-+ Clone the repository:
++ 1 Clone the repository:
 bash
 git clone <repository-url>
 cd <project-folder>
