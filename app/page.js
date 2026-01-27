@@ -22,7 +22,7 @@ const Home = () => {
 
           <Link
             href="/cabins"
-            className=" my-10   bg-[hsla(10,100%,60%,0.4)]  p-6  text-white text-lg font-semibold hover:bg-[hsla(0,0%,0%,0.6)] transition-all"
+            className=" my-10   bg-[hsla(10,100%,60%,0.4)]  p-8  text-white text-lg font-semibold hover:bg-[hsla(0,0%,0%,0.6)] transition-all"
           >
             Explore luxury cabins
           </Link>
