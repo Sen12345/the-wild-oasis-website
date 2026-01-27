@@ -13,7 +13,7 @@ export default async function Page() {
   // const bookings = [];
 
   return (
-    <div>
+    <div className="mt-16">
       <h2 className="font-semibold text-2xl text-accent-400 mb-7">
         Your reservations
       </h2>
