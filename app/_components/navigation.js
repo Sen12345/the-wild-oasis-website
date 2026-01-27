@@ -1,4 +1,5 @@
 "use client";
+import { usePathname } from "next/navigation";
 import Logo from "./logo";
 import Menu from "./menu";
 import { useState } from "react";
@@ -6,8 +7,12 @@ import { useState } from "react";
 const Navigation = ({ session }) => {
   const [toggle, setToggle] = useState(false);
 
+  const pathname = usePathname();
+
   return (
-    <nav className="relative z-10 w-full text-white">
+    <nav
+      className={`fixed z-10 border-b-[0.1px] border-b-gray-700 w-full text-white ${pathname === "/" ? "bg-[hsla(0,0%,0%,0.6)]" : "bg-primary-950"}`}
+    >
       <div className="min-w-full flex justify-between px-4">
         <Logo />
         <button

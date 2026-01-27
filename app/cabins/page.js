@@ -17,7 +17,7 @@ export default async function Page({ searchParams }) {
   const filter = sparems?.capacity ?? "all";
 
   return (
-    <div className="min-h-screen max-w-full px-4">
+    <div className="min-h-screen mt-16 max-w-full px-4">
       <h1 className="text-4xl text-accent-400 font-medium">
         Our Luxury Cabins
       </h1>
