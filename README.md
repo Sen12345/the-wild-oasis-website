@@ -41,17 +41,17 @@ Supabase is used as the backend platform, providing:
 * npm, yarn, or pnpm
 * A Supabase project
 ## Installation
-1 Clone the repository:
+- 1 Clone the repository:
 bash
 git clone <repository-url>
 cd <project-folder>
-2 Install dependencies:
+- 2 Install dependencies:
 bash
 npm install
-3 Create a .env.local file in the root of the project and add the required environment variables.
+- 3 Create a .env.local file in the root of the project and add the required environment variables.
 ## Environment Variables
-NEXTAUTH_URL=http://localhost:3000
-NEXTAUTH_SECRET=your-nextauth-secret
+- NEXTAUTH_URL=http://localhost:3000
+- NEXTAUTH_SECRET=your-nextauth-secret
 
 SUPABASE_URL=your-supabase-project-url
 SUPABASE_ANON_KEY=your-supabase-anon-key
