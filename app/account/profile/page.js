@@ -12,7 +12,7 @@ export default async function Page() {
   const guest = await getGuest(session.user.email);
   // const nationality = "portugal";
   return (
-    <div className="p-4">
+    <div className="p-4 mt-16">
       <h2 className="font-semibold text-2xl text-accent-400 mb-4">
         Update your guest profile
       </h2>
