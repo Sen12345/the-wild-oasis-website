@@ -10,14 +10,16 @@ const CabinList = async ({ filter }) => {
   if (filter === "all") displayCabins = cabins;
 
   if (filter === "small")
-    displayCabins = cabins.filter((cabin) => cabin.maxCapacity <= 2);
+    displayCabins = cabins.filter(
+      (cabin) => cabin.maxCapacity >= 1 && cabin.maxCapacity <= 3,
+    );
   if (filter === "medium")
     displayCabins = cabins.filter(
-      (cabin) => cabin.maxCapacity >= 3 && cabin.maxCapacity <= 4,
+      (cabin) => cabin.maxCapacity >= 4 && cabin.maxCapacity <= 7,
     );
   if (filter === "large")
     displayCabins = cabins.filter(
-      (cabin) => cabin.maxCapacity >= 5 && cabin.maxCapacity <= 8,
+      (cabin) => cabin.maxCapacity >= 8 && cabin.maxCapacity <= 12,
     );
 
   if (!cabins.length) return null;
