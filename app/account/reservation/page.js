@@ -13,18 +13,16 @@ export default async function Page() {
   // const bookings = [];
 
   return (
-    <div className="mt-16">
+    <div className="mt-16 px-2">
       <h2 className="font-semibold text-2xl text-accent-400 mb-7">
         Your reservations
       </h2>
 
       {bookings.length === 0 ? (
         <div>
-          <p className="text-lg ">
-            You have no reservations yet. Check out our
-          </p>
+          <p className="text-lg ">You have no reservations yet.</p>
           <a className="underline text-accent-500" href="/cabins">
-            luxury cabins &rarr;
+            Check out our luxury cabins &rarr;
           </a>
         </div>
       ) : (
