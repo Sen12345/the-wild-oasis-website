@@ -10,7 +10,7 @@ const Navigation = ({ session }) => {
   const isHome = pathname === "/";
   return (
     <nav
-      className={`fixed z-10 border-b-[0.1px] border-b-gray-700 w-full text-white ${isHome ? "bg-[#000000]" : "bg-primary-800"}`}
+      className={`fixed z-10 border-b-[0.1px] border-b-gray-700 w-full bg-white text-black`}
     >
       <div className="min-w-full flex justify-between px-4">
         <Logo />
