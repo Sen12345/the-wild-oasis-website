@@ -6,17 +6,16 @@ import { useState } from "react";
 
 const Navigation = ({ session }) => {
   const [toggle, setToggle] = useState(false);
-
   const pathname = usePathname();
-
+  const isHome = pathname === "/";
   return (
     <nav
-      className={`fixed z-10 border-b-[0.1px] border-b-gray-700 w-full text-white ${pathname === "/" ? "bg-[hsla(0,0%,0%,0.6)]" : "bg-primary-950"}`}
+      className={`fixed z-10 border-b-[0.1px] border-b-gray-700 w-full text-white ${isHome ? "bg-[hsla(0,0%,0%,0.6)]" : "bg-primary-950"}`}
     >
       <div className="min-w-full flex justify-between px-4">
         <Logo />
         <button
-          onClick={() => setToggle((toggle) => (toggle = !toggle))}
+          onClick={() => setToggle((toggle) => !toggle)}
           data-collapse-toggle="navbar-default"
           type="button"
           className="inline-flex items-center my-4 p-2 w-12 h-12 justify-center text-sm text-body rounded-base md:hidden hover:bg-neutral-secondary-soft hover:text-heading focus:outline-none focus:ring-2 focus:ring-neutral-tertiary"

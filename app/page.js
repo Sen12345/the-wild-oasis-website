@@ -14,7 +14,7 @@ const Home = () => {
         alt="Mountains and forests with two cabins"
       />
 
-      <div className="relative top-32 flex w-full   justify-center  ">
+      <div className="relative top-32 flex max-w-screen   justify-center  ">
         <div className="flex flex-col items-center text-center">
           <h1 className="text-6xl text-white  tracking-tight font-normal">
             Welcome to paradise

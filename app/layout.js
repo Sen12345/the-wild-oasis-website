@@ -5,6 +5,8 @@ import "@/app/_styles/globals.css";
 import { ContextProvider } from "./context/ReservationContext";
 import { auth } from "./_lib/auth";
 
+export const dynamic = "force-dynamic";
+
 const geistSans = Geist({
   variable: "--font-geist-sans",
   subsets: ["latin"],

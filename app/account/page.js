@@ -10,7 +10,7 @@ const Page = async () => {
   return (
     <div className="w-full mt-16 px-4">
       <h2 className="font-semibold text-2xl text-accent-400 mb-7">
-        Welsome, {firstName}
+        Welcome, {firstName}
       </h2>
       Account
     </div>

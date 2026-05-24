@@ -1,6 +1,7 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
   images: {
+    qualities: [75, 80, 100],
     remotePatterns: [
       {
         protocol: "https",
@@ -15,6 +16,7 @@ const nextConfig = {
     ],
   },
   reactCompiler: true,
+  // output: "export",
 };
 
 module.exports = nextConfig;
