@@ -5,7 +5,7 @@ function Cabin({ cabin }) {
   return (
     <div>
       <div className="w-full">
-        <h3 className="mx-auto text-accent-100 py-5 font-black text-7xl mb-4 md:px-20  md:translate-x-[-254px] bg-primary-900 md:w-[150%]">
+        <h3 className="mx-auto text-accent-100 py-5 font-black text-7xl mb-4 md:px-20  md:translate-x-[-254px] bg-primary-800 md:w-[150%]">
           Cabin {cabin.name}
         </h3>
 
