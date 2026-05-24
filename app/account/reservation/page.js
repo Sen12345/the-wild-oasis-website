@@ -19,12 +19,14 @@ export default async function Page() {
       </h2>
 
       {bookings.length === 0 ? (
-        <p className="text-lg">
-          You have no reservations yet. Check out our
+        <div>
+          <p className="text-lg ">
+            You have no reservations yet. Check out our
+          </p>
           <a className="underline text-accent-500" href="/cabins">
-            luxury cabins &arr;
+            luxury cabins &rarr;
           </a>
-        </p>
+        </div>
       ) : (
         <ReservationList bookings={bookings} />
       )}
